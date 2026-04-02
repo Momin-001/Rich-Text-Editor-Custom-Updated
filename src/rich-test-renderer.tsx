@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { usePageRouter } from "@/hooks/use-page-router";
-import { ROUTES } from "@/utils/constants/routes";
+// import { usePageRouter } from "@/hooks/use-page-router";
+// import { ROUTES } from "@/utils/constants/routes";
 import * as S from "./styled";
 
 interface RichTextRendererProps {
@@ -18,7 +18,7 @@ export const RichTextRenderer = ({
   overlayHidden = false,
   disableCollapse = false,
 }: RichTextRendererProps) => {
-  const { routeToPage } = usePageRouter();
+  // const { routeToPage } = usePageRouter();
 
   const contentRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -28,21 +28,21 @@ export const RichTextRenderer = ({
   const [animating, setAnimating] = useState(false);
   const [isOverflowing, setIsOverflowing] = useState(false);
 
-  const onUserTagClick = useCallback(
-    (userId: string) => {
-      // console.log("authState", authState);
-      routeToPage(ROUTES.User.View(userId));
-      // console.log("user click:", userId, routeToPage);
-    },
-    [routeToPage],
-  );
+  // const onUserTagClick = useCallback(
+  //   (userId: string) => {
+  //     // console.log("authState", authState);
+  //     routeToPage(ROUTES.User.View(userId));
+  //     // console.log("user click:", userId, routeToPage);
+  //   },
+  //   [routeToPage],
+  // );
 
-  const onItemTagClick = useCallback(
-    (itemId : string) => {
-      routeToPage(ROUTES.Item.View(itemId));
-    },
-    [routeToPage],
-  );
+  // const onItemTagClick = useCallback(
+  //   (itemId : string) => {
+  //     routeToPage(ROUTES.Item.View(itemId));
+  //   },
+  //   [routeToPage],
+  // );
 
   // Inject HTML + attach click delegation
   useEffect(() => {
@@ -66,8 +66,8 @@ export const RichTextRenderer = ({
       const { type, id } = mentionTag.dataset;
       if (!type || !id) return;
 
-      if (type === "USER") onUserTagClick(id);
-      if (type === "ITEM") onItemTagClick(id);
+      // if (type === "USER") onUserTagClick(id);
+      // if (type === "ITEM") onItemTagClick(id);
     };
 
     container.addEventListener("click", handleMentionClick);
