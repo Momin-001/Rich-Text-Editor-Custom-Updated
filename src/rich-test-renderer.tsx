@@ -1,6 +1,6 @@
 "use client";
-
-import { useCallback, useEffect, useRef, useState } from "react";
+// import { useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 // import { usePageRouter } from "@/hooks/use-page-router";
 // import { ROUTES } from "@/utils/constants/routes";
 import * as S from "./styled";
